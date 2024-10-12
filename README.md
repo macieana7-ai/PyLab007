@@ -134,10 +134,11 @@ For this lab we are going to write code to print out a Vigenère square, and wri
     * HINT: You can use index_to_letter to return the cipher text!
 * Finally, write a function `encrypt_vigenere(key, plaintext, alphabet)` that follows the process from the introduction to map your picked **key** to every character of your **plain text** and then uses `vigenere_index(key_letter, plaintext_letter, alphabet)` to build an encrypted string.
     * HINT: You will clearly need to loop over every letter in your plaintext.
-    * HINT: You don't need to match each letter of the plain text to your key if you think (USE % to CYCLE over the KEY letters)
+    * HINT: You don't need to match each letter of the plain text to your key if you think **(USE % to CYCLE over the KEY letters)**
         * For example, if your key is DAVINCI, the V is at index 2, and the length is 7, so 2 % 7 would return 2, just like 9 % 7 would return 2!
             * DAVINCIDAVINCI
             * 0123456789
+    * Remember, this time I want the cipher-text in a list!
 
 ## Part 3 - Decryption - NOT bonus this time
 
@@ -150,14 +151,22 @@ For this lab we are going to write code to print out a Vigenère square, and wri
     * HINT: maybe just try: `plain_text_char = (cipher_char - key-char) % len(alphabet)`
 * Write a function `undo_vigenere_index(key_letter, cypher_letter, alphabet)` that is essentially the opposite of vigenere_index. So it will return the **plain text** letter.
 * Next use this function in another function `decrypt_vignere(key, cipher_text, alphabet)` to decrypt your cipher_text string completely into plain text.
+    * Remember this time I want the plaintext in a list.
 
 ## Part 4 - App
 
 * Write a for loop that gives the user a menu. 1). Encrypt, 2). Decrypt, 3). Dump Encrypted Text, 4.) Quit
     * **(I want the menu items to be in a `list()`)**
-        * If you can figure it out, I'd like your menu to be a `list` of `lists` that has to elements in the inner list 1. The menu item and 2. the function to call when that item is selected.
+        * If you can figure it out, I'd like your menu to be a `list` of `lists` that has two elements in the inner list: 1. The menu string and 2. the function to call when that item is selected.
     * If Encrypt is selected you should prompt for plain text and store the encrypted result in a global `list` before returning to the main menu.
-    * If Decrypt is selected you should loop over the global encrypted `list` decrypt each entry, and print the text before returning to the main menu.
+    * If Decrypt is selected you should loop over the global encrypted `list`, decrypt each entry, and print the text before returning to the main menu.
+
+## BONUS - (10pts)
+
+* Invent a way to **rotate** keys for the encryption process.
+    * Perhaps have another menu item that allows users to input a series of keys
+    * Then, each time encrypt is selected, rotate to a new key.
+        * Clearly you will have to follow the same key roatation pattern for "3). Dump Encrypted"
 
 ## Part 5: Turn In!
 [Review video of this process](https://redwoods.us-west-2.instructuremedia.com/embed/72299bfd-8420-4ad0-8af5-18fb8e32e50a)
