@@ -168,7 +168,7 @@ For this lab we are going to write code to print out a Vigenère square, and wri
 * Invent a way to **rotate** keys for the encryption process.
     * Perhaps have another menu item that allows users to input a series of keys
     * Then, each time encrypt is selected, rotate to a new key.
-        * Clearly you will have to follow the same key roatation pattern for "3). Dump Encrypted"
+        * Clearly you will have to follow the same key roatation pattern for "2). Decrypt"
 
 ## Part 5: Turn In!
 [Review video of this process](https://redwoods.us-west-2.instructuremedia.com/embed/72299bfd-8420-4ad0-8af5-18fb8e32e50a)
