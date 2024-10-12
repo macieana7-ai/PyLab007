@@ -158,8 +158,10 @@ For this lab we are going to write code to print out a Vigenère square, and wri
 * Write a for loop that gives the user a menu. 1). Encrypt, 2). Decrypt, 3). Dump Encrypted Text, 4.) Quit
     * **(I want the menu items to be in a `list()`)**
         * If you can figure it out, I'd like your menu to be a `list` of `lists` that has two elements in the inner list: 1. The menu string and 2. the function to call when that item is selected.
-    * If Encrypt is selected you should prompt for plain text and store the encrypted result in a global `list` before returning to the main menu.
-    * If Decrypt is selected you should loop over the global encrypted `list`, decrypt each entry, and print the text before returning to the main menu.
+    * If **1). Encrypt** is selected you should prompt for plain text and store the encrypted result in a global `list` before returning to the main menu.
+    * If **2). Decrypt** is selected you should loop over the global encrypted `list`, decrypt each entry, and print the text before returning to the main menu.
+    * If **3). Dump Encrypted** is selected you simply print the global `list` as is!
+        * HINT: Keep an eye out for redundant code, this is a good sign you can **encapsulate** it in a function and **generalize** it wih parameters.
 
 ## BONUS - (10pts)
 
