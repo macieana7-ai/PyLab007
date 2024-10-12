@@ -1,4 +1,8 @@
-# Introduction to the Vigenère Cipher
+# Vigenère Cipher - TAKE TWO
+
+**Last week you implemented Vigenère's cipher, but with limited knowledge of string functions, features and lists. This week we're going to revisit this cipher, but this time I want you to optimize your code by looking for areas where using lists and or any of the new string features we've learned would improve your code. I also want you to complete the BONUS decryption this time around regardless of whether you did it for extra credit last week!**
+
+---
 
 The Vigenère cipher is a method of encrypting text by using a keyword to alter the letters in the plaintext. The cipher uses a **Vigenère square** (a 26x26 table containing all possible alphabetic shifts) to match a keyword with the plaintext.
 
@@ -79,12 +83,11 @@ This process continues for each letter in the plaintext, resulting in a fully en
 
 For this lab we are going to write code to print out a Vigenère square, and write the encryption and decryption functions for a Vigenère cipher!
 
-## Part 1 - Printing a Vigenère Square
+## Part 1 - Building a Vigenère Square
 
 * Using the Vigenère Square in this README.md as your guide, write a function called **vigenere_sq**
-* It should use **f-strings** to print the table in a stylized way.
-* It should use loops to repeat letters and rows.
-    HINT: Nested for loops will be useful, one for the alphabet and one for the number of rows!
+    * This time around, build the square in a **list** of **list** before looping over those lists and printing the square you see below.
+* As last week, use **f-strings** to print the table in a stylized way.
 * Example output:
 ```shell
 |   | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z |
@@ -119,6 +122,10 @@ For this lab we are going to write code to print out a Vigenère square, and wri
 
 ## Part 2 - Encryption
 
+**Not much will change in this section, but review all the functions and optimize with new string features and lists where you can. One change I want you to make is to save your cipher_text in a list instead of appending to a cipher_text string. Then I want you to use `join()` to generate the return result.**
+
+---
+
 * Write a function `letter_to_index(letter, alphabet)` that returns the letter's `int` position in the alphabet.
 * Write a function `index_to_letter(index, alphabet)` that returns the `letter` found at position `index`.
 * Choose a **key** as described in the introduction, it can be any word that can be made with your **alphabet** the English alphabet in our case.
@@ -132,19 +139,25 @@ For this lab we are going to write code to print out a Vigenère square, and wri
             * DAVINCIDAVINCI
             * 0123456789
 
-## Part 3 - Decryption (BONUS + 10pts)
+## Part 3 - Decryption - NOT bonus this time
 
-I'm going to give you less help on this one because it is the bonus. In order to **decrypt** you will need to figure out how to un-rotate the cipher!
-Then:going to give you less help on this one because it is the bonus. In order to **decrypt** you will need to figure out how to un-rotate the cipher!
+**This time this part of the lab is NOT bonus, because I want you all to have a working encryption/decryption cipher. The goal here is to recover the plain_text, but I want you to recover each palin_text character into a list and then use `join()` on the list to return the plaintext result.**
 
+---
+
+* In order to **decrypt** you will need to figure out how to un-rotate the cipher!
+    * That means reverse `cipher_char = (key_char + plain_text_char) % len(alphabet)`
+    * HINT: maybe just try: `plain_text_char = (cipher_char - key-char) % len(alphabet)`
 * Write a function `undo_vigenere_index(key_letter, cypher_letter, alphabet)` that is essentially the opposite of vigenere_index. So it will return the **plain text** letter.
 * Next use this function in another function `decrypt_vignere(key, cipher_text, alphabet)` to decrypt your cipher_text string completely into plain text.
 
-## Part 4 - App (BONUS + 5pts)
+## Part 4 - App
 
-* Write a main loop that gives the user a menu. 1). Encrypt or 2). Decrypt
-    * If Encrypt is selected you should prompt for plain text and print out the encrypted string before returning to the main menu.
-    * If Decrypt is selected you should prompt for cipher text and print out the decrypted string before returning to the main menu.
+* Write a for loop that gives the user a menu. 1). Encrypt, 2). Decrypt, 3). Dump Encrypted Text, 4.) Quit
+    * **(I want the menu items to be in a `list()`)**
+        * If you can figure it out, I'd like your menu to be a `list` of `lists` that has to elements in the inner list 1. The menu item and 2. the function to call when that item is selected.
+    * If Encrypt is selected you should prompt for plain text and store the encrypted result in a global `list` before returning to the main menu.
+    * If Decrypt is selected you should loop over the global encrypted `list` decrypt each entry, and print the text before returning to the main menu.
 
 ## Part 5: Turn In!
 [Review video of this process](https://redwoods.us-west-2.instructuremedia.com/embed/72299bfd-8420-4ad0-8af5-18fb8e32e50a)
